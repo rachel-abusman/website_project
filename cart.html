@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Cart - Fleur Enchantée</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Fleur Enchantée</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero-section text-center mt-4">
+  <h1>Your Shopping Cart</h1>
+  <p>Review your items before checkout.</p>
+</header>
+
+<section class="text-center my-5">
+  <div class="container">
+    <h2>Cart Items</h2>
+  
+    <div class="table-responsive">
+      <table class="table" id="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <h4 id="grand-total" class="my-3">Total: $0.00</h4>
+    <button class="btn btn-success" id="checkout-btn">Proceed to Checkout</button>
+    <a href="index.html" class="btn btn-success">Back to Home</a>
+  </div>
+</section>
+
+<footer class="text-center bg-dark text-white py-5">
+  <p>© 2025 Fleur Enchantée | All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Load cart from localStorage
+  function loadCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const tableBody = document.querySelector("#cart-table tbody");
+    const grandTotalDisplay = document.getElementById("grand-total");
+    tableBody.innerHTML = '';
+    let grandTotal = 0;
+
+    cart.forEach((item, index) => {
+      const total = item.price * item.quantity;
+      grandTotal += total;
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${item.name}</td>
+        <td>$${item.price.toFixed(2)}</td>
+        <td><input type="number" value="${item.quantity}" min="1" class="form-control form-control-sm quantity-input" data-index="${index}"></td>
+        <td>$${total.toFixed(2)}</td>
+        <td>
+          <button class="btn btn-sm btn-danger delete-btn" data-index="${index}">Delete</button>
+        </td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+    grandTotalDisplay.textContent = `Total: $${grandTotal.toFixed(2)}`;
+  }
+
+  // Delete item
+  document.addEventListener("click", function(e) {
+    if (e.target.classList.contains("delete-btn")) {
+      const index = e.target.dataset.index;
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+  });
+
+  // Edit quantity
+  document.addEventListener("change", function(e) {
+    if (e.target.classList.contains("quantity-input")) {
+      const index = e.target.dataset.index;
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const newQty = parseInt(e.target.value);
+      cart[index].quantity = newQty > 0 ? newQty : 1;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+  });
+
+  // Checkout
+  document.getElementById("checkout-btn").addEventListener("click", function() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) {
+      alert("Your cart is empty.");
+      return;
+    }
+    if (confirm("Are you sure you want to checkout?")) {
+      alert("Thank you for your purchase!");
+      localStorage.removeItem("cart");
+      loadCart();
+    }
+  });
+
+  loadCart();
+</script>
+
+</body>
+</html>

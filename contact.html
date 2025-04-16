@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Fleur Enchantée</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Fleur Enchantée</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero-section text-center">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>If you have any questions or need assistance, feel free to reach out to us. We are here to help you find your perfect fragrance.</p>
+  </div>
+</header>
+
+<div class="container my-5">
+  <div class="row">
+    <!-- Contact Info -->
+    <div class="col-md-6 mb-4">
+      <h3>Get in Touch</h3>
+      <ul>
+        <li><strong>Email:</strong> rachelabusman321@gmail.com</li>
+        <li><strong>Phone:</strong> 09076691578</li>
+        <li><strong>Address:</strong> Brgy. Sta Lucia Dolores Quezon</li>
+      </ul>
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://web.facebook.com/profile.php?id=100078218566455&rdid=mwzSABB0jxGU9QeQ&share_url=https%3A%2F%2Fweb.facebook.com%2Fshare%2F18wBtC6miG%2F%3F_rdc%3D1%26_rdr#" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/abusman_rachel?igsh=cWQ4YnY1cDJoNWwz" target="_blank"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="col-md-6">
+      <h3>Send Us a Message</h3>
+      <form action="submit_form.php" method="POST">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-dark mt-2">Send Message</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center bg-dark text-white py-5">
+  <p>© 2025 Fleur Enchantée | All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

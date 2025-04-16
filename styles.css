@@ -1,0 +1,189 @@
+/* General Styles */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+/* Links */
+a {
+  color: #ff69b4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Product Card */
+.product-card {
+  transition: transform 0.3s;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+.star-rating {
+  color: gold;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #333 !important; /* Light background for the navbar */
+}
+
+.navbar .navbar-brand {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #ffc0cb  !important; /* Always pink text for the brand */
+}
+
+.navbar .navbar-nav .nav-link {
+  color: #ffc0cb  !important; /* Always pink text for navigation links */
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #ffc0cb   !important; /* Pink on hover */
+}
+
+.navbar-toggler-icon {
+  background-color: #333 !important; /* Dark icon color */
+}
+
+
+/* Footer */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+
+/* Contact Page / Hero Section */
+.hero-section {
+  background: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li {
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #333;
+}
+
+.social-icons a:hover {
+  color: #ff69b4;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 576px) {
+  .hero-section h1 {
+    font-size: 28px;
+  }
+
+  .hero-section p {
+    font-size: 16px;
+  }
+
+  .contact-info h3,
+  .contact-info h4 {
+    font-size: 20px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
+  }
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Buttons */
+button,
+.btn {
+  font-size: 1em;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #ff69b4;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #333;
+  color: white;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Responsive Layout Helper */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
